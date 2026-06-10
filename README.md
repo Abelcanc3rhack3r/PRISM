@@ -101,7 +101,7 @@ To execute dataset serialization, train your network, run predictions, and run m
 Run the script by targeting your interpreter path explicitly:
 
 ```cmd
-"C:\Users\abel\anaconda3_2\Scripts\conda.exe" run -n yolov26_clone python PRISM_CATH_letterboxed_multiclass_domains_docstrings.py --csv "C:\Users\abel\Documents\PRISM\UPLOAD\annotations.csv" --pdb_root "C:\Users\abel\Documents\PRISM\UPLOAD\structures" --out "C:\Users\abel\Documents\PRISM\UPLOAD\datasets\prism_v1" --epochs 100 --batch 8 --weights yolo26n.pt
+conda run -n yolov26_clone python PRISM_CATH_letterboxed_multiclass_domains_docstrings.py --csv "/path/to/annotations.csv" --pdb_root "/path/to/structures" --out "/path/to/output_dataset" --epochs 100 --batch 8 --weights yolo26n.pt
 
 ```
 
@@ -112,7 +112,7 @@ Tailor runtime optimization using these diagnostic parameters:
 * `--force_build`: Force updates or recreates all intermediate structural PNG maps and text box tracks, even if they match existing files.
 * `--no-resume`: Wipes out prior checkpoints and dataset files to restart tasks cleanly from scratch.
 * `--eval_only`: Disables asset generation, modeling passes, and predictions to review existing confusion matrices.
-* `--k_folds <int>`: Configures an automated validation loop to evaluate generalizability metrics across multiple folds.
+
 
 ---
 
