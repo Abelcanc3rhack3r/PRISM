@@ -1,0 +1,28 @@
+name: yolov26_clone1
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pytorch=2.4
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1
+  - ultralytics=8.4
+  - opencv=4.13
+  - biopython=1.87
+  - numpy
+  - pandas
+  - polars
+  - scipy
+  - matplotlib-base
+  - seaborn
+  - pyyaml
+  - networkx
+  - sympy
+  - psutil
+  - pip
+  - pip:
+    - nvidia-ml-py==13.595.45
