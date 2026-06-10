@@ -1,5 +1,13 @@
 # PRISM: Sequence-Independent Protein Domain Detection and Classification
 
+
+## Authors & Affiliations
+
+**Abel Tan** and **Henning Seedorf**  
+*Department of Biological Sciences, National University of Singapore*
+
+*Funded by Temasek Life Sciences Laboratory Limited until funding was cut on 30 January 2025. Further development was self-funded by Abel Tan and/or gratuitously supported by NUS IT and CBIS.
+
 ## Overview
 
 **PRISM** (Protein Record Identification & Structural Mapping) is a unified computational framework that integrates sequence-independent domain segmentation and functional classification into a single, high-throughput inference step.
@@ -135,8 +143,3 @@ The framework demonstrates near-perfect discrimination for canonical ALP domains
 
 ---
 
-## Authors & Affiliations
-
-**Abel Tan** and **Henning Seedorf**
-*Temasek Life Sciences Laboratory Limited, National University of Singapore*
-*Department of Biological Sciences, National University of Singapore*
