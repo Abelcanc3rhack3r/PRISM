@@ -28,6 +28,94 @@ Traditional structural parsing tools rely heavily on sequence alignments and sta
 
 ---
 
+## Installation & Environment Setup
+
+PRISM utilizes Conda to manage framework dependencies and ensure smooth, cross-platform reproducibility.
+
+### 1. Create Environment from File
+Create your runtime workspace from the provided configuration file:
+```bash
+conda env create -f environment.yml
+
+```
+
+### 2. Update Existing Environment
+
+If you are modifying an active environment instead, execute an explicit file-driven update:
+
+```bash
+conda env update --file environment.yml --prune
+
+```
+
+### 3. Activate the Workspace
+
+```bash
+conda activate yolov26_clone
+
+```
+
+---
+
+## Input & Output Data Configurations
+
+The PRISM training and inference pipeline requires specific input schemas and creates structured directory trees as artifacts.
+
+### Expected Input Files
+
+1. **Protein Structural Repository (`--pdb_root`):**
+A folder containing coordinate files in standard `.pdb` or `.cif` format. The files must be named using their unique structural keys (e.g., `A0A123XYZ.pdb` or `A0A123XYZ.cif`).
+2. **Domain Annotation Table (`--csv`):**
+A comma-separated (`.csv`) or tab-separated (`.tsv`) table tracking your target domains. The pipeline discovers multiclass categorizations dynamically from your metadata. It must contain the following columns:
+* `protein_id`: Unique string mapping directly to the target filenames.
+* `domain_start`: Integer index marking the first residue of the domain.
+* `domain_end`: Integer index marking the terminating residue of the domain.
+* `domain_type`: Functional classification label string (e.g., `ABD`, `RBH`).
+
+
+
+### Generated Output Directories (`--out`)
+
+The pipeline automatically writes structural dataset matrices formatted for visual object detection networks:
+
+```text
+out_directory/
+├── data.yaml              # Consolidated dataset channel definitions
+├── images/
+│   ├── train/             # Standardized letterboxed 2D PNG contact maps
+│   └── val/
+└── labels/
+    ├── train/             # Normalized bounding box coordinates (YOLO format)
+    └── val/
+
+```
+
+---
+
+## Execution Guide
+
+### Running the Complete Pipeline via CMD
+
+To execute dataset serialization, train your network, run predictions, and run multi-threshold statistical verification, use the pipeline execution script.
+
+Run the script by targeting your interpreter path explicitly:
+
+```cmd
+"C:\Users\abel\anaconda3_2\Scripts\conda.exe" run -n yolov26_clone python PRISM_CATH_letterboxed_multiclass_domains_docstrings.py --csv "C:\Users\abel\Documents\PRISM\UPLOAD\annotations.csv" --pdb_root "C:\Users\abel\Documents\PRISM\UPLOAD\structures" --out "C:\Users\abel\Documents\PRISM\UPLOAD\datasets\prism_v1" --epochs 100 --batch 8 --weights yolo26n.pt
+
+```
+
+### Advanced Pipeline Control Flags
+
+Tailor runtime optimization using these diagnostic parameters:
+
+* `--force_build`: Force updates or recreates all intermediate structural PNG maps and text box tracks, even if they match existing files.
+* `--no-resume`: Wipes out prior checkpoints and dataset files to restart tasks cleanly from scratch.
+* `--eval_only`: Disables asset generation, modeling passes, and predictions to review existing confusion matrices.
+* `--k_folds <int>`: Configures an automated validation loop to evaluate generalizability metrics across multiple folds.
+
+---
+
 ## Performance Benchmarks
 
 PRISM was rigorously validated on a curated dataset of archaeal adhesin-like proteins (ALPs).
