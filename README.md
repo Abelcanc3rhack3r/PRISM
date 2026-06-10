@@ -6,7 +6,7 @@
 **Abel Tan** and **Henning Seedorf**  
 *Department of Biological Sciences, National University of Singapore*
 
-*Funded by Temasek Life Sciences Laboratory Limited until funding was cut on 30 January 2025. Further development was self-funded by Abel Tan and/or gratuitously supported by NUS IT and CBIS.
+*Funded by Temasek Life Sciences Laboratory Limited until funding was cut on 30 January 2026. Further development was self-funded by Abel Tan and/or gratuitously supported by NUS IT and CBIS.
 
 ## Overview
 
